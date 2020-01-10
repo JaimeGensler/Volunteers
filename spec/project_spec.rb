@@ -29,27 +29,34 @@ describe Project do
         end
     end
 
-    #   context '.all' do
-    #     it 'is empty to start' do
-    #       expect(Project.all).to eq []
-    #     end
+    describe '.hash_helper' do
+        it 'converts string-type keys to symbols and empty string values to nil' do
+            row_hash = {'title' => 'Teaching Code', 'id' => ''}
+            expect(Project.hash_helper(row_hash)).to eq({title: 'Teaching Code', id: nil})
+        end
+    end
 
-    #     it 'returns all projects' do
-    #       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-    #       project1.save
-    #       project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
-    #       project2.save
-    #       expect(Project.all).to eq [project1, project2]
-    #     end
-    #   end
-
-    #   describe '#save' do
+    # describe '#save' do
     #     it 'saves a project to the database' do
-    #       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-    #       project.save
-    #       expect(Project.all).to eq [project]
+    #         project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    #         project.save
+    #         expect(Project.all).to eq [project]
     #     end
-    #   end
+    # end
+    # context '.all' do
+    #     it 'is empty to start' do
+    #         expect(Project.all).to eq []
+    #     end
+    #
+    #     it 'returns all projects' do
+    #         project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    #         project1.save
+    #         project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+    #         project2.save
+    #         expect(Project.all).to eq [project1, project2]
+    #     end
+    # end
+
 
     #   describe '.find' do
     #     it 'returns a project by id' do
