@@ -19,6 +19,10 @@ class Volunteer
     def self.all
         DB.exec("SELECT * FROM volunteers;").map { |row| Volunteer.new(Volunteer.hash_helper(row)) }
     end
+    def self.find(id)
+        attributes = DB.exec("SELECT * FROM volunteers WHERE id = #{id};").first
+        Volunteer.new(Volunteer.hash_helper(attributes))
+    end
 
     private
     def self.hash_helper(row_hash)
