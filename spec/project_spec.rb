@@ -33,16 +33,14 @@ describe Project do
             expect(project.title).to eq 'Teaching Ruby to Kids'
         end
     end
-
-    #   context '#delete' do
-    #     it 'allows a user to delete a project' do
-    #       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-    #       project.save
-    #       project.delete
-    #       expect(Project.all).to eq []
-    #     end
-    #   end
-    # end
+    context '#delete' do
+        it 'allows a user to delete a project' do
+            project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+            project.save
+            project.delete
+            expect(Project.all).to eq []
+        end
+    end
     describe '#==' do
         it 'is the same project if two projects have the same title' do
             project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
