@@ -50,6 +50,15 @@ describe Project do
     end
 
 
+    describe '.find' do
+        it 'returns a project by id' do
+            project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+            project1.save
+            project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
+            project2.save
+            expect(Project.find(project1.id)).to eq project1
+        end
+    end
     context '.all' do
         it 'is empty to start' do
             expect(Project.all).to eq []
@@ -63,17 +72,6 @@ describe Project do
             expect(Project.all).to eq [project1, project2]
         end
     end
-
-
-    #   describe '.find' do
-    #     it 'returns a project by id' do
-    #       project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-    #       project1.save
-    #       project2 = Project.new({:title => 'Teaching Ruby to Kids', :id => nil})
-    #       project2.save
-    #       expect(Project.find(project1.id)).to eq project1
-    #     end
-    #   end
 
     #   describe '#volunteers' do
     #     it 'returns all volunteers for a specific project' do

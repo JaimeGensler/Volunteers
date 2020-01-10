@@ -25,6 +25,10 @@ class Project
     end
 
     #class methods
+    def self.find(id)
+        attributes = DB.exec("SELECT * FROM projects WHERE id = #{id};").first
+        Project.new(Project.hash_helper(attributes))
+    end
     def self.all
         DB.exec("SELECT * FROM projects;").map { |row| Project.new(Project.hash_helper(row)) }
     end
