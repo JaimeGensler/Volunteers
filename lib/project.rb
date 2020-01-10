@@ -14,9 +14,9 @@ class Project
     end
 
     #class methods
-    # def self.all
-    #     DB.exec("SELECT * FROM projects;").map { |row| Project.new(Project.hash_helper(row)) }
-    # end
+    def self.all
+        DB.exec("SELECT * FROM projects;").map { |row| Project.new(Project.hash_helper(row)) }
+    end
 
     private
     def self.hash_helper(row_hash)
