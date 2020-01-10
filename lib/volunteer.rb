@@ -15,10 +15,10 @@ class Volunteer
         @id == comparator.id
     end
 
-    #class methods
-    # def self.all
-    #     DB.exec("SELECT * FROM volunteers;").map { |row| Volunteer.new(Volunteer.hash_helper(row)) }
-    # end
+    # class methods
+    def self.all
+        DB.exec("SELECT * FROM volunteers;").map { |row| Volunteer.new(Volunteer.hash_helper(row)) }
+    end
 
     private
     def self.hash_helper(row_hash)
