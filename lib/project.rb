@@ -6,7 +6,14 @@ class Project
     end
     def save
         @id = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;").first.fetch('id').to_i
-        self #self return to make #save safely chainable method (e.g. my_var = Project.new(params).save)
+        self #self return to make #save safely chainable (e.g. my_var = Project.new(params).save)
+    end
+    def update(attributes)
+        attributes = Project.hash_helper(attributes)
+        unless attributes[:title].nil?
+            @title = attributes[:title]
+            DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+        end
     end
     def ==(comparator)
         @title == comparator.title &&
