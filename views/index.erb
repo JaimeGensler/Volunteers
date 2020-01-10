@@ -1,3 +1,24 @@
 <main>
-    
+    <div>
+        <h2>Task Name</h2>
+        <table>
+            <tr>
+                <th>Project Name</th>
+                <th>Current Number of Volunteers</th>
+                <th>Minimum Volunteers Needed</th>
+            </tr>
+            <% if @projects.any? %>
+            <% @projects.each do |project| %>
+            <tr>
+                <td><%= project.title %></td>
+                <!-- <td><%= project.title %></td> -->
+                <!-- <td><%= project.title %></td> -->
+            </tr>
+            <% end %>
+            <% end %>
+            <tr>
+                <td>ADD NEW PROJECT</td>
+            </tr>
+        </table>
+    </div>
 </main>
