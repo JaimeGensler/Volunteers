@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Volunteer - <%= @info[0] %></title>
-        <link rel='icon' href='/img/icon.png'>
-        <link rel='stylesheet' href='/css/master.css' type='text/css'>
-        <link rel='stylesheet' href='/css/<%= @info[1] %>.css' type='text/css'>
-    </head>
-    <body>
-        <%= yield %>
-    </body>
+<head>
+    <title>Volunteer Tracker - <%= @info[0] %></title>
+    <link rel='icon' href='/img/icon.png'>
+    <link rel='stylesheet' href='/css/master.css' type='text/css'>
+    <link rel='stylesheet' href='/css/<%= @info[1] %>.css' type='text/css'>
+</head>
+<body>
+    <header id='site-head'>
+        <a href='/'>
+            <img src='img/icon.png' alt='Clipboard Icon'>
+            <h1>Volunteer Track</h1>
+        </a>
+    </header>
+    <%= yield %>
+</body>
 </html>
