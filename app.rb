@@ -10,7 +10,6 @@ also_reload 'lib/**/*.rb'
 
 get '/' do
     @info = ['Home', 'home']
-    Project.new({title: 'Sample'}).save
     @projects = Project.all
     erb :index
 end

@@ -1,6 +1,6 @@
 <main>
     <div>
-        <h2>Task Name</h2>
+        <h2>Projects</h2>
         <table>
             <tr>
                 <th>Project Name</th>
@@ -11,14 +11,11 @@
             <% @projects.each do |project| %>
             <tr>
                 <td><%= project.title %></td>
-                <!-- <td><%= project.title %></td> -->
-                <!-- <td><%= project.title %></td> -->
+                <td><%= project.title %></td>
+                <td><%= project.title %></td>
             </tr>
             <% end %>
             <% end %>
-            <tr>
-                <td>ADD NEW PROJECT</td>
-            </tr>
         </table>
     </div>
 </main>
