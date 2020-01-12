@@ -5,6 +5,7 @@ main {
 
     border-radius: 5rem;
     border: 2px solid black;
+    background-color: white;
 }
 
 h2 {
@@ -45,4 +46,20 @@ td:first-child, th:first-child {
 }
 td:not(:first-child), th:not(:first-child) {
     text-align: center;
+}
+tr:not(:first-child) td:first-child {
+    text-indent: 1rem;
+}
+
+tr:not(:first-child):hover {
+    background-color: rgba(255, 100, 100, 0.3);
+    background-image: none;
+}
+
+.row-click {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    display: block;
 }

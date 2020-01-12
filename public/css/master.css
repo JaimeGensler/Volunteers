@@ -1,6 +1,9 @@
 body {
     margin: 0;
     padding: 0;
+    background-image: linear-gradient(to right, rgba(255,255,255,0.3) 0%, transparent 15%, transparent 85%, rgba(255,255,255,0.3) 100%),
+        url('../img/bg.jpg');
+    background-size: cover;
 }
 * {
     font-family: serif;
@@ -12,22 +15,23 @@ h1, h2, h3, h4, h5, h6 {
 #site-head {
     position: sticky;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0.5rem 1rem 1rem 1rem;
 
-    width: 50%;
-    height: 15vh;
+    width: 100%;
+    height: 10vh;
+    background-color: white;
 }
 #site-head a {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 
     width: 100%;
     height: 100%;
     text-decoration: none;
 }
 #site-head img {
-    max-height: 100%;
+    max-height: 4.5rem;
     max-width: 100%;
 }
 #site-head h1 {

@@ -4,15 +4,27 @@
         <table>
             <tr>
                 <th>Project Name</th>
-                <th>Current Number of Volunteers</th>
-                <th>Minimum Volunteers Needed</th>
+                <th>Volunteers Assigned</th>
+                <th>Volunteers Needed</th>
             </tr>
             <% if @projects.any? %>
             <% @projects.each do |project| %>
             <tr>
-                <td><%= project.title %></td>
-                <td><%= project.title %></td>
-                <td><%= project.title %></td>
+                <td>
+                    <a class='row-click' href='/projects/<%= project.id %>'>
+                        <%= project.title %>
+                    </a>
+                </td>
+                <td>
+                    <a class='row-click' href='/projects/<%= project.id %>'>
+                        <%= project.title %>
+                    </a>
+                </td>
+                <td>
+                    <a class='row-click' href='/projects/<%= project.id %>'>
+                        <%= project.title %>
+                    </a>
+                </td>
             </tr>
             <% end %>
             <% end %>
