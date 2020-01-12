@@ -25,6 +25,14 @@ describe Project do
             expect(Project.all).to eq [project]
         end
     end
+    describe '#vols_assigned' do
+        it 'returns the number of volunteers assigned to a project' do
+            project = Project.new({title: 'Teaching Kids to Code'}).save
+            Volunteer.new(name: 'Jaime Gensler', project_id: project.id).save
+            Volunteer.new(name: 'Barack Obama', project_id: project.id).save
+            expect(project.vols_assigned).to eq 2
+        end
+    end
     describe '#update' do
         it 'allows a user to update a project' do
             project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
