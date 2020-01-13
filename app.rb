@@ -28,28 +28,15 @@ patch '/projects/:id' do
     redirect to "/projects/#{params[:id]}"
 end
 
-
-# get '/theatres/:id' do
-#     @theatre = Theatre.find(params[:id].to_i)
-#     @page = @theatre.name
-#     @css = 'item_view'
-#     erb :theatres_ID
-# end
-#
-# get '/theatres/:id/edit' do
-#     @theatre = Theatre.find(params[:id].to_i)
-#     @page = "Editing #{@theatre.name}"
-#     @css = 'item_edit'
-#     erb :theatres_ID_edit
-# end
-# patch '/theatres/:id' do
-#     theatre = Theatre.find(params[:id].to_i)
-#     theatre.update(params)
-#     unless (params[:movie_name] == '' || params[:showtime] == '')
-#         theatre.add_showing(params[:movie_name], params[:showtime])
-#     end
-#     redirect to "/theatres/#{params[:id]}"
-# end
+get '/projects/:id/edit' do
+    @project = Project.find(params[:id].to_i)
+    @info = [@project.title, 'project']
+    erb :projects_ID_edit
+end
+patch '/projects/:id' do
+    Project.find(params[:id].to_i).update(params)
+    redirect to "/projects/#{params[:id]}"
+end
 # delete '/theatres/:id' do
 #     Theatre.find(params[:id].to_i).delete
 #     redirect to '/theatres'
