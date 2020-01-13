@@ -23,6 +23,12 @@ class Project
             DB.exec("UPDATE projects SET vols_needed = '#{@vols_needed || 0}' WHERE id = #{@id};")
         end
     end
+    def volunteers
+        DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};").map do |vol|
+            attributes = Project.hash_helper(vol)
+            Volunteer.new(attributes)
+        end
+    end
     def delete
         DB.exec("DELETE FROM projects WHERE id = #{@id};")
         # DB.exec("DELETE FROM volunteers WHERE project_id = #{@id};")

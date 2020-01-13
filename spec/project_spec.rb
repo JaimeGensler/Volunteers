@@ -49,6 +49,17 @@ describe Project do
             expect(Project.all).to eq []
         end
     end
+    describe '#volunteers' do
+        it 'returns all volunteers for a specific project' do
+            project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+            project.save
+            volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :id => nil})
+            volunteer1.save
+            volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :id => nil})
+            volunteer2.save
+            expect(project.volunteers).to eq [volunteer1, volunteer2]
+        end
+    end
     describe '#==' do
         it 'is the same project if two projects have the same title' do
             project1 = Project.new({:title => 'Teaching Kids to Code', :id => nil})
@@ -80,19 +91,6 @@ describe Project do
             expect(Project.all).to eq [project1, project2]
         end
     end
-
-    #   describe '#volunteers' do
-    #     it 'returns all volunteers for a specific project' do
-    #       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-    #       project.save
-    #       volunteer1 = Volunteer.new({:name => 'Jasmine', :project_id => project.id, :id => nil})
-    #       volunteer1.save
-    #       volunteer2 = Volunteer.new({:name => 'Joe', :project_id => project.id, :id => nil})
-    #       volunteer2.save
-    #       expect(project.volunteers).to eq [volunteer1, volunteer2]
-    #     end
-    #   end
-
 
     describe '.hash_helper' do
         it 'converts string-type keys to symbols and empty string values to nil' do
