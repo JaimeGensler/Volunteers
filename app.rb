@@ -14,6 +14,11 @@ get '/' do
     erb :index
 end
 
+post '/' do
+    Project.new(params).save
+    redirect to '/'
+end
+
 # get '/theatres' do
 #     @page = 'Theatres'
 #     @css = 'list'

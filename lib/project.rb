@@ -6,7 +6,7 @@ class Project
         @id = (attributes[:id].nil?) ? nil : attributes[:id].to_i
     end
     def save
-        @id = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;").first.fetch('id').to_i
+        @id = DB.exec("INSERT INTO projects (title, vols_needed) VALUES ('#{@title}', '#{@vols_needed || 0}') RETURNING id;").first.fetch('id').to_i
         self #self return to make #save safely chainable (e.g. my_var = Project.new(params).save)
     end
     def vols_assigned
@@ -20,7 +20,7 @@ class Project
         end
         unless attributes[:vols_needed].nil?
             @vols_needed = attributes[:vols_needed].to_i
-            DB.exec("UPDATE projects SET vols_needed = '#{@vols_needed}' WHERE id = #{@id};")
+            DB.exec("UPDATE projects SET vols_needed = '#{@vols_needed || 0}' WHERE id = #{@id};")
         end
     end
     def delete
