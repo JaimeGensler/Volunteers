@@ -9,6 +9,16 @@ class Volunteer
         @id = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', '#{@project_id}') RETURNING id;").first.fetch('id').to_i
         self #self return to make #save safely chainable (e.g. my_var = Project.new(params).save)
     end
+    def update(attributes)
+        attributes = Volunteer.hash_helper(attributes)
+        unless attributes[:name].nil?
+            @name = attributes[:name]
+            DB.exec("UPDATE volunteers SET name = '#{@name}' WHERE id = #{@id};")
+        end
+    end
+    def delete
+        DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
+    end
     def ==(comparator)
         @name == comparator.name &&
         @project_id == comparator.project_id &&

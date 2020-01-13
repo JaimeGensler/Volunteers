@@ -1,0 +1,24 @@
+<main>
+    <h2><%= @volunteer.name %></h2>
+    <p>Assigned to
+        '<a href='/projects/<%= @project.id %>'>
+            <%= @project.title %>
+        </a>'
+    </p>
+
+    <hr>
+    <form action='/projects/<%= @project.id %>/volunteers/<%= @volunteer.id %>' method='post'>
+        <input name='_method' type='hidden' value='patch'>
+        <h3>Edit volunteer:</h3>
+        <label>
+            New Name:
+            <input name='name' type='text' placeholder='<%= @volunteer.name %>'>
+        </label>
+        <button class='btn' type='submit'>Update Volunteer</button>
+    </form>
+    <form action='/projects/<%= @project.id %>/volunteers/<%= @volunteer.id %>' method='post'>
+        <input name='_method' type='hidden' value='delete'>
+        <button class='btn delete' type='submit'>DELETE VOLUNTEER</button>
+    </form>
+    <a href='/projects/<%= @project.id %>'>Back to project page</a>
+</main>
