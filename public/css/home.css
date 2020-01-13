@@ -12,20 +12,6 @@ form label {
     width: 50%;
     margin: 0.5rem;
 }
-button {
-    font-size: 1rem;
-    display: block;
-    margin: 1rem auto 0 auto;
-    cursor: pointer;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-button:hover {
-    background-color: #383838;
-    color: white;
-    border: 1px solid white;
-    box-shadow: 0 0 1px 1px black;
-}
 
 table, th, td {
     margin: 0;

@@ -62,3 +62,24 @@ h2 {
     margin: 0 0 0.5rem 0;
     font-size: 2rem;
 }
+
+.btn {
+    display: block;
+    margin: 1rem auto 0.5rem auto;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 2rem;
+    border: 1px solid black;
+    width: 10rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: black;
+    background-color: #e6e6e6;
+}
+
+.btn:hover {
+    background-color: #383838;
+    color: white;
+    border: 1px solid white;
+    box-shadow: 0 0 1px 1px black;
+}
