@@ -13,29 +13,22 @@ get '/' do
     @projects = Project.all
     erb :index
 end
-
 post '/' do
     Project.new(params).save
     redirect to '/'
 end
 
-# get '/theatres' do
-#     @page = 'Theatres'
-#     @css = 'list'
-#     @theatres = Theatre.all
-#     erb :theatres
-# end
-#
-# get '/theatres/new' do
-#     @page = 'New Theatre'
-#     @css = 'new'
-#     erb :theatres_new
-# end
-# post '/theatres' do
-#     Theatre.new(params).save
-#     redirect to '/theatres'
-# end
-#
+get '/projects/:id' do
+    @project = Project.find(params[:id].to_i)
+    @info = [@project.title, 'project']
+    erb :projects_ID
+end
+patch '/projects/:id' do
+    Project.find(params[:id].to_i).update(params)
+    redirect to "/projects/#{params[:id]}"
+end
+
+
 # get '/theatres/:id' do
 #     @theatre = Theatre.find(params[:id].to_i)
 #     @page = @theatre.name

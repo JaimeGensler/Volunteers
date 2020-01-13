@@ -45,37 +45,20 @@ h1, h2, h3, h4, h5, h6 {
     color: transparent;
     -webkit-background-clip: text;
 }
-
-form {
-    margin: 1rem auto 0 auto;
-    border: 1px solid black;
-    width: 60%;
-    padding: 1rem;
-    text-align: center;
-    background-color: rgba(0, 150, 0, 0.1);
-}
-form label {
-    font-size: 1rem;
-    display: inline;
-    width: 50%;
-    margin: 0.5rem;
-}
-button {
-    font-size: 1rem;
-    display: block;
-    margin: 1rem auto 0 auto;
-    cursor: pointer;
-    border-radius: 1rem;
-    padding: 0.5rem;
-}
-button:hover {
-    background-color: #383838;
-    color: white;
-    border: 1px solid white;
-    box-shadow: 0 0 1px 1px black;
-}
-
-
 @keyframes prettyText {
     to {background-position: right;}
+}
+
+main {
+    margin: 2rem auto 0 auto;
+    padding: 2.5rem;
+    width: 65%;
+
+    border-radius: 5rem;
+    border: 2px solid black;
+    background-color: white;
+}
+h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
 }
