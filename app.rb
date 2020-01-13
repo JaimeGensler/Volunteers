@@ -37,7 +37,7 @@ patch '/projects/:id' do
     Project.find(params[:id].to_i).update(params)
     redirect to "/projects/#{params[:id]}"
 end
-# delete '/theatres/:id' do
-#     Theatre.find(params[:id].to_i).delete
-#     redirect to '/theatres'
-# end
+delete '/projects/:id' do
+    Project.find(params[:id].to_i).delete
+    redirect to '/'
+end

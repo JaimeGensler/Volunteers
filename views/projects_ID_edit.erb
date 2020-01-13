@@ -12,7 +12,7 @@
         </label>
         <button class='btn' type='submit'>Update Project</button>
     </form>
-    <form action='/' method='post'>
+    <form action='/projects/<%= @project.id %>' method='post'>
         <input name='_method' type='hidden' value='delete'>
         <button class='btn delete' type='submit'>DELETE PROJECT</button>
     </form>
